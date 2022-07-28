@@ -1,0 +1,9 @@
+// soal no 3
+FROM golang ==> download image golang
+ADD . /go/src/github.com/telkomdev/indihome/backend == > Digunakan untuk menyalin file dan direktori dari sumber ke /go/src/github.com/telkomdev/indihome/backend
+WORKDIR /go/src/github.com/telkomdev/indihome ==> Directive ini menetapkan direktori kerja saat ini untuk instruksi RUN, CMD, ENTRYPOINT, COPY, dan ADD berikut.
+RUN go get github.com/tools/godep ==> Menjalankan untuk install depensency godep
+RUN godep restore  ==> Menjalankan untuk restore depensency godep
+RUN go install github.com/telkomdev/indihome ==> Menjalankan instalasi package
+ENTRYPOINT /go/bin/indihome ==> ENTRYPOINT -> Mirip dengan CMD perintah ini jalan ketika container dijalanjkan
+LISTEN 80 ==> harusnya diganti EXPOSE fungsinya untuk mendefinisakn port
